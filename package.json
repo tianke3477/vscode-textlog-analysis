@@ -1,0 +1,294 @@
+{
+  "name": "vscode-textlog-analysis",
+  "displayName": "Textlog Analysis",
+  "description": "text log analysis",
+  "publisher": "tianke3477",
+  "version": "1.1.0",
+  "engines": {
+    "vscode": "^1.63.0"
+  },
+  "icon": "TextLog.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tianke3477/vscode-textlog-analysis.git"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscode-textlog-analysis.moveUp",
+        "title": "move up",
+        "icon": "$(arrow-up)"
+      },
+      {
+        "command": "vscode-textlog-analysis.moveDown",
+        "title": "move up",
+        "icon": "$(arrow-down)"
+      },
+      {
+        "command": "vscode-textlog-analysis.refresFilterTreeView",
+        "title": "refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "vscode-textlog-analysis.enableFilter",
+        "title": "Enable Filter",
+        "icon": "$(eye)"
+      },
+      {
+        "command": "vscode-textlog-analysis.disableFilter",
+        "title": "Disable Filter",
+        "icon": "$(eye-closed)"
+      },
+      {
+        "command": "vscode-textlog-analysis.enableAllFilter",
+        "title": "enable all Filter",
+        "icon": "$(eye)"
+      },
+      {
+        "command": "vscode-textlog-analysis.disableAllFilter",
+        "title": "Disable all Filter",
+        "icon": "$(eye-closed)"
+      },
+      {
+        "command": "vscode-textlog-analysis.deleteAllFilter",
+        "title": "Delete ",
+        "icon": "$(close)"
+      },
+      {
+        "command": "vscode-textlog-analysis.addFilter",
+        "title": "Add a Filter",
+        "icon": "$(new-file)"
+      },
+      {
+        "command": "vscode-textlog-analysis.deleteFilter",
+        "title": "Delete a Filter",
+        "icon": "$(close)"
+      },
+      {
+        "command": "vscode-textlog-analysis.editFilter",
+        "title": "Edit a Filter",
+        "icon": "$(edit)"
+      },     
+      {
+        "command": "vscode-textlog-analysis.exportAllFilters",
+        "title": "Export All Filters"
+      },
+      {
+        "command": "vscode-textlog-analysis.exportFilters",
+        "title": "Export Filters"
+      },
+      {
+        "command": "vscode-textlog-analysis.importAllFilters",
+        "title": "Import Filters"
+      },
+      {
+        "command": "vscode-textlog-analysis.importFilters",
+        "title": "Import Filters"
+      },
+      {
+        "command": "vscode-textlog-analysis.searchRegexCase",
+        "title": "search",
+        "icon": "$(search)"
+      },
+      {
+        "command": "vscode-textlog-analysis.searchWebView",
+        "title": "result",
+        "icon": "$(search)"
+      },
+      {
+        "command": "vscode-textlog-analysis.highlighter",
+        "title": "highlighter",
+        "icon": "$(search)"
+      },
+      {
+        "command": "vscode-textlog-analysis.debug",
+        "title": "debug",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "vscode-textlog-analysis.openLargeFile",
+        "title": "open large File",
+        "icon": "$(file-add)"
+      }
+    ],
+    "menus": {
+      "view/item/context": [
+        {
+          "command": "vscode-textlog-analysis.disableFilter",
+          "when": "view == vscode-textlog-analysis-view && viewItem==shown",
+          "group": "inline@0"
+        },
+        {
+          "command": "vscode-textlog-analysis.enableFilter",
+          "when": "view == vscode-textlog-analysis-view && viewItem ==hiden",
+          "group": "inline@0"
+        },
+        {
+          "command": "vscode-textlog-analysis.disableFilter",
+          "when": "view == vscode-textlog-analysis-view&& viewItem==group"
+        },
+        {
+          "command": "vscode-textlog-analysis.enableFilter",
+          "when": "view == vscode-textlog-analysis-view && viewItem==group"
+        },
+        {
+          "command": "vscode-textlog-analysis.deleteFilter",
+          "when": "view == vscode-textlog-analysis-view&& viewItem!=group"
+        },
+        {
+          "command": "vscode-textlog-analysis.editFilter",
+          "when": "view == vscode-textlog-analysis-view&& viewItem!=group"
+        },
+        {
+          "command": "vscode-textlog-analysis.importFilters",
+          "when": "view == vscode-textlog-analysis-view"
+        },
+        {
+          "command": "vscode-textlog-analysis.exportFilters",
+          "when": "view == vscode-textlog-analysis-view"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "vscode-textlog-analysis.disableAllFilter",
+          "when": "view == vscode-textlog-analysis-view",
+          "group": "group1"
+        },
+        {
+          "command": "vscode-textlog-analysis.enableAllFilter",
+          "when": "view == vscode-textlog-analysis-view",
+          "group": "group1"
+        },       
+        {
+          "command": "vscode-textlog-analysis.addFilter",
+          "when": "view == vscode-textlog-analysis-view",
+          "group": "navigation"
+        },
+        {
+          "command": "vscode-textlog-analysis.refresFilterTreeView",
+          "when": "view == vscode-textlog-analysis-view",
+          "group": "navigation"
+        },
+        {
+          "command": "vscode-textlog-analysis.deleteAllFilter",
+          "when": "view == vscode-textlog-analysis-view",
+          "group": "group2"
+        },
+        {
+          "command": "vscode-textlog-analysis.openLargeFile",
+          "when": "view==vscode-textlog-analysis-view",
+          "group": "group4"
+        },
+        {
+          "command": "vscode-textlog-analysis.importAllFilters",
+          "when": "view == vscode-textlog-analysis-view",
+          "group": "group3"
+        },
+        {
+          "command": "vscode-textlog-analysis.exportAllFilters",
+          "when": "view == vscode-textlog-analysis-view",
+          "group": "group3"
+        },
+        {
+          "command": "vscode-textlog-analysis.searchWebView",
+          "when": "view == vscode-textlog-analysis-view",
+          "group": "navigation"
+        },
+        {
+          "command": "vscode-textlog-analysis.moveUp",
+          "when": "view == vscode-textlog-analysis-view",
+          "group": "navigation"
+        },
+        {
+          "command": "vscode-textlog-analysis.moveDown",
+          "when": "view == vscode-textlog-analysis-view",
+          "group": "navigation"
+        },
+        {
+          "command": "vscode-textlog-analysis.searchWebView",
+          "when": "view == searchWebView",
+          "group": "navigation"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "vscode-textlog-analysis.searchWebView",
+        "key": "ctrl+l",
+        "mac": "cmd+l"
+      },
+      {
+        "command": "vscode-textlog-analysis.highlighter",
+        "key": "ctrl+h",
+        "mac": "cmd+h"
+      }
+    ],
+    "viewsContainers": {
+      "panel": [
+        {
+          "id": "searchWebViewContainer",
+          "title": "textlog-analysis",
+          "icon": "$(eye)"
+        }
+      ]
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "vscode-textlog-analysis-view",
+          "name": "textlog analysis"
+        }
+      ],
+      "searchWebViewContainer": [
+        {
+          "id": "searchWebView",
+          "type": "webview",
+          "name": ""
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.4",
+    "@types/mocha": "^9.0.0",
+
+    "@types/vscode": "^1.63.0",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
+    "@vscode/test-electron": "^1.6.2",
+    "eslint": "^8.6.0",
+    "glob": "^7.2.0",
+    "mocha": "^9.1.3",
+
+    
+    "@types/jasmine": "^3.10.6",
+		"@types/node": "^18.11.9",
+		"jasmine": "^3.10.6",
+		"jasmine-core": "^3.10.6",
+		"minimist": "^1.2.7",
+		"tslint": "^6.1.3",
+		"typescript": "^4.8.4",
+		"vscode": "^1.1.37"
+  },
+  "dependencies": {
+    "moment": "^2.29.4"
+  },
+  "resolutions": {
+		"minimist": "^1.2.6"
+	}
+}
